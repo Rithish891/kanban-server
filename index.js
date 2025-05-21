@@ -3,7 +3,7 @@ const app = express();
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 let data = {
   tickets: [
@@ -115,6 +115,6 @@ app.post("/tasks", (req, res) => {
   res.status(201).json({ message: "Task added", task: taskWithId });
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server is running at http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`✅ Server is running at http://localhost:${port}`);
 });
