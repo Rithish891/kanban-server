@@ -115,6 +115,13 @@ app.post("/tasks", (req, res) => {
   res.status(201).json({ message: "Task added", task: taskWithId });
 });
 
+const originalData = JSON.parse(JSON.stringify(data));
+
+app.post("/reset", (req, res) => {
+  data = JSON.parse(JSON.stringify(originalData));
+  res.json({ message: "Data has been reset to original state." });
+});
+
 app.listen(port, () => {
   console.log(`✅ Server is running at http://localhost:${port}`);
 });
