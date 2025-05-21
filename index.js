@@ -3,9 +3,8 @@ const app = express();
 
 app.use(express.json());
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Initial static data
 let data = {
   tickets: [
     {
@@ -99,12 +98,10 @@ let data = {
   ],
 };
 
-// GET /tasks - returns all data
 app.get("/tasks", (req, res) => {
   res.json(data);
 });
 
-// POST /tasks - appends a new task
 app.post("/tasks", (req, res) => {
   const newTask = req.body;
   if (!newTask || typeof newTask !== "object") {
